@@ -1,5 +1,9 @@
 package com.example.absolutelysaurabh.mvp_android;
 
+import com.example.absolutelysaurabh.mvp_android.model.Person;
+
+import javax.inject.Inject;
+
 /**
  * Created by absolutelysaurabh on 25/2/18.
  */
@@ -9,10 +13,12 @@ public class SayHelloPresenter implements SayHelloContract.Presenter {
     private Person person;
     private SayHelloContract.View view;
 
-    public SayHelloPresenter(SayHelloContract.View view){
-        this.person = new Person();
+    @Inject
+    public SayHelloPresenter(Person person, SayHelloContract.View view) {
+        this.person = person;
         this.view = view;
     }
+
 
     @Override
     public void loadMessage() {
@@ -21,7 +27,7 @@ public class SayHelloPresenter implements SayHelloContract.Presenter {
             return;
         }
 
-        String message = "Hi " + person.getLastName() + " !";
+        String message = "Hi " + person.getFirstName() + " !";
         view.showMessage(message);
     }
 

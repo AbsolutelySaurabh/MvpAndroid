@@ -1,4 +1,4 @@
-package com.example.absolutelysaurabh.mvp_android;
+package com.example.absolutelysaurabh.mvp_android.model;
 
 /**
  * Created by absolutelysaurabh on 25/2/18.

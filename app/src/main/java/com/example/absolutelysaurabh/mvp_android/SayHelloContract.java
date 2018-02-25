@@ -7,13 +7,13 @@ package com.example.absolutelysaurabh.mvp_android;
 public class SayHelloContract {
 
     //represents view in mvp
-    interface View{
+    public interface View{
         void showMessage(String message);
         void showError(String error);
     }
 
     //represents the presenter in MVP
-    interface Presenter{
+    public interface Presenter{
         void loadMessage();
         void saveName(String firstname, String lastName);
     }

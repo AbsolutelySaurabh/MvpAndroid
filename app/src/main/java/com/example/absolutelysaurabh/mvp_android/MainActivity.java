@@ -7,9 +7,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.absolutelysaurabh.mvp_android.dagger.SayHelloPresenterModule;
+import com.example.absolutelysaurabh.mvp_android.model.Person;
+
+import javax.inject.Inject;
+
 public class MainActivity extends AppCompatActivity  implements SayHelloContract.View, View.OnClickListener{
 
-    private SayHelloContract.Presenter presenter;
+    @Inject
+    SayHelloPresenter presenter;
 
     //UI properties
     private TextView messageView;
@@ -22,8 +28,11 @@ public class MainActivity extends AppCompatActivity  implements SayHelloContract
         setContentView(R.layout.activity_main);
 
         initViews();
-        //creates presenter
-        presenter = new SayHelloPresenter(this);
+        // Creates presenter
+        DaggerSayHelloComponent.builder()
+                .sayHelloPresenterModule(new SayHelloPresenterModule(this, new Person()))
+                .build()
+                .inject(this);
     }
 
     private void initViews(){
