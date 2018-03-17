@@ -1,4 +1,4 @@
-package com.example.absolutelysaurabh.mvp_android;
+package apk.dexter.appsmoniac.mvpapkmanager;
 
 import org.junit.Test;
 
